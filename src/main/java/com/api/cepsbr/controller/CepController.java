@@ -1,5 +1,6 @@
 package com.api.cepsbr.controller;
 
+import com.api.cepsbr.exception.NoContentException;
 import com.api.cepsbr.model.Endereco;
 import com.api.cepsbr.service.CorreiosService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class CepController {
     }
 
     @GetMapping("cep/{cep}")
-    public Endereco getEnderecoCep (@PathVariable("cep") String cep){
+    public Endereco getEnderecoCep (@PathVariable("cep") String cep) throws NoContentException {
         return this.service.getEnderecoCep(cep);
     }
 }
